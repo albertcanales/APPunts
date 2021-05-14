@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_tasks">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.estudiantapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_tasks"
+        android:name="com.example.estudiantapp.ui.TasquesFragment"
+        android:label="@string/menu_tasks"
+        tools:layout="@layout/fragment_tasques" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.estudiantapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_apunts"
+        android:name="com.example.estudiantapp.ui.ApuntsFragment"
+        android:label="@string/menu_apunts"
+        tools:layout="@layout/fragment_apunts" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.estudiantapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.estudiantapp.ui.VideosFragment"
+        android:label="@string/menu_videos"
+        tools:layout="@layout/fragment_videos" />
 </navigation>
