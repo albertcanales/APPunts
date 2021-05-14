@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <string name="search_label">Buscar Tareas</string>
+    <string name="search_hint">Entregable</string>
+</resources>
