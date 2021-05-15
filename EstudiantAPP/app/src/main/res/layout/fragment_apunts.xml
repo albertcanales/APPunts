@@ -22,7 +22,7 @@
             android:drawableLeft="@drawable/ic_baseline_person_24"
             android:text="Els meus apunts"/>
 
-        <Button
+        <Button android:id="@+id/biblioteca"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

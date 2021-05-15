@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EstudiantAPP">
         <activity
+            android:name=".Assignatura"
+            android:label="@string/title_activity_assignatura"
+            android:theme="@style/Theme.EstudiantAPP.NoActionBar"></activity>
+        <activity android:name=".Biblioteca" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.EstudiantAPP.NoActionBar">
@@ -19,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/app_name" android:name=".NewTaskActivity"/>
+        <activity
+            android:name=".NewTaskActivity"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

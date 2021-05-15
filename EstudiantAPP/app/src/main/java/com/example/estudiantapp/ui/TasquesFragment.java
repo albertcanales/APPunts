@@ -27,7 +27,6 @@ public class TasquesFragment extends Fragment {
         root.findViewById(R.id.newtask_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.println(Log.ASSERT, "JAJA", "lol");
                 startActivity(new Intent(getActivity(), NewTaskActivity.class));
             }
         });
