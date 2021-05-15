@@ -12,7 +12,8 @@
 
         <activity android:name=".activities.NewApuntActivity"/>
         <activity android:name=".activities.MyApuntsActivity"/>
-        <activity android:name=".activities.ApuntActivity" />
+        <activity android:name=".activities.ApuntActivity"
+            android:theme="@style/Theme.EstudiantAPP.NoActionBar"/>
         <activity
             android:name=".activities.BibliotecaActivity"
             android:label="@string/title_activity_assignatura"
