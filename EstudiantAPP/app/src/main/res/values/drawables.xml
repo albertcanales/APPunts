@@ -5,4 +5,12 @@
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
     <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+
+    <dimen name="standard_12">12dp</dimen>
+    <dimen name="standard_21">21dp</dimen>
+    <dimen name="standard_23">21dp</dimen>
+    <dimen name="standard_45">45dp</dimen>
+    <dimen name="standard_55">55dp</dimen>
+    <dimen name="standard_105">105dp</dimen>
+    <dimen name="standard_155">155dp</dimen>
 </resources>
