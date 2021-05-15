@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.estudiantapp.activities.MainActivity;
 import com.example.estudiantapp.activities.NewTaskActivity;
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.FragmentTasquesBinding;
@@ -23,12 +24,14 @@ public class TasquesFragment extends Fragment {
         binding = FragmentTasquesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        root.findViewById(R.id.newtask_bt).setOnClickListener(new View.OnClickListener() {
+        root.findViewById(R.id.new_fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), NewTaskActivity.class));
             }
         });
+
+
 
         return root;
     }

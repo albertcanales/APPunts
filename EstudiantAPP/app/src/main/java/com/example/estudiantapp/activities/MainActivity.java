@@ -74,38 +74,6 @@ public class MainActivity extends AppCompatActivity {
         */
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.newFab.setOnClickListener(new View.OnClickListener() {
-
-            private boolean isFABOpen = false;
-
-            final Button fab_subject = (Button) findViewById(R.id.subject_fab);
-            final Button fab_task = (Button) findViewById(R.id.task_fab);
-
-            private void showFABMenu(){
-                isFABOpen=true;
-                findViewById(R.id.subject_fab).setVisibility(View.VISIBLE);
-                findViewById(R.id.task_fab).setVisibility(View.VISIBLE);
-                fab_subject.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-                fab_task.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-            }
-
-            private void closeFABMenu(){
-                isFABOpen=false;
-                findViewById(R.id.task_fab).setVisibility(View.GONE);
-                findViewById(R.id.subject_fab).setVisibility(View.GONE);
-                fab_task.animate().translationY(0);
-                fab_subject.animate().translationY(0);
-            }
-
-            @Override
-            public void onClick(View view) {
-                if(!isFABOpen){
-                    showFABMenu();
-                }else{
-                    closeFABMenu();
-                }
-            }
-        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

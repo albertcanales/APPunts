@@ -22,11 +22,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Assignatura: "
+            android:text="Grau: "
             android:textSize="20dp"
             android:textColor="@color/black"/>
 
-        <EditText android:id="@+id/assignatura_et"
+        <EditText android:id="@+id/grau_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp" />
@@ -41,11 +41,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grau: "
+            android:text="Assignatura: "
             android:textSize="20dp"
             android:textColor="@color/black"/>
 
-        <EditText android:id="@+id/grau_et"
+        <EditText android:id="@+id/assignatura_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp" />
@@ -73,11 +73,26 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripció: "
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="7dp"/>
+
+    <MultiAutoCompleteTextView android:id="@+id/descripcio_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escriu un resum o un índex dels teus apunts"
+        android:textSize="20dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="left|center">
+        android:gravity="left|center"
+        android:layout_marginTop="7dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,12 +110,6 @@
             />
 
     </LinearLayout>
-
-    <MultiAutoCompleteTextView android:id="@+id/descripcio_tv"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:hint="Descripcio"
-        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
