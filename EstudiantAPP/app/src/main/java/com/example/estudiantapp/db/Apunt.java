@@ -9,14 +9,15 @@ public class Apunt implements Serializable {
     private String degree;
     private String subject;
     private String type;
-    private int pageCount;
+    private Integer pageCount;
     private String description;
     private Date date;
+    private Boolean isFavourite;
 
     public Apunt() {
     }
 
-    public Apunt(String pdfName, String author, String degree, String subject, String type, int pageCount, String description, Date date){
+    public Apunt(String pdfName, String author, String degree, String subject, String type, int pageCount, String description, Date date, boolean isFavourite) {
         this.pdfName = pdfName;
         this.author = author;
         this.degree = degree;
@@ -25,6 +26,20 @@ public class Apunt implements Serializable {
         this.pageCount = pageCount;
         this.description = description;
         this.date = date;
+        this.isFavourite = isFavourite;
+    }
+
+    public Apunt(String rpr) {
+        String[] partes = rpr.split(",");
+        pdfName = partes[0];
+        author = partes[1];
+        degree = partes[2];
+        subject = partes[3];
+        type = partes[4];
+        pageCount = Integer.parseInt(partes[5]);
+        description = partes[6];
+        date = new Date(partes[7]);
+        isFavourite = Boolean.parseBoolean(partes[8]);
     }
 
     public String getPdfName() {
@@ -91,6 +106,15 @@ public class Apunt implements Serializable {
         this.date = date;
     }
 
+
+    public boolean getIsFavourite() {
+        return this.isFavourite;
+    }
+
+    public void setIsFavourite(boolean isFavourite) {
+        this.isFavourite = isFavourite;
+    }
+
     @Override
     public String toString() {
         return "Apunt{" +
@@ -101,7 +125,12 @@ public class Apunt implements Serializable {
                 ", type='" + type + '\'' +
                 ", pageCount=" + pageCount +
                 ", description='" + description + '\'' +
-                ", date=" + date +
-                '}';
+                ", date=" + date + '\'' +
+                ", isFavourite=" + isFavourite.toString() +
+        '}';
     }
 }
+
+
+
+

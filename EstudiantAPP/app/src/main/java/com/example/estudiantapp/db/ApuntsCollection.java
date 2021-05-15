@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ApuntsCollection {
     private List<Apunt> apunts;
+    private final String FILENAME = "apunts.txt";
 
     public ApuntsCollection(){
         apunts = new ArrayList<>();
@@ -83,6 +84,16 @@ public class ApuntsCollection {
         for (Apunt apunt : apunts){
             Date date = apunt.getDate();
             if (date.after(oldmost) && date.before(newmost)){
+                answer.add(apunt);
+            }
+        }
+        return answer;
+    }
+
+    public ApuntsCollection getFavourites(){
+        ApuntsCollection answer = new ApuntsCollection();
+        for (Apunt apunt : apunts){
+            if (apunt.getIsFavourite()){
                 answer.add(apunt);
             }
         }

@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,7 +21,51 @@ public class TxtHandler {
 
     static final String FILENAME = "Tasks.txt";
 
+    public static void prova(Context myContext, List<Task> L) throws IOException {
+
+
+        File gpxfile = new File(myContext.getFilesDir(), FILENAME);
+        gpxfile.delete();
+
+        File file = new File(myContext.getFilesDir(), FILENAME);
+        FileWriter writer = new FileWriter(file);
+        writer.append("");
+        writer.flush();
+        writer.close();
+
+
+        String txt = fromTaskListToString(L);
+        Log.d("LOLAZO", txt);
+
+        for (Task t : L){
+            addTask(myContext, t);
+        }
+
+
+        String s = readFromFile(myContext);
+        Log.d("LOLAZO", s);
+
+
+    }
+
     // Aquí comença codi copiat fortament d'Internet
+
+    public void writeFileOnInternalStorage(Context mcoContext, String sFileName){
+        File dir = new File(mcoContext.getFilesDir(), "mydir");
+        if(!dir.exists()){
+            dir.mkdir();
+        }
+
+        try {
+            File gpxfile = new File(dir, sFileName);
+            // FileWriter writer = new FileWriter(gpxfile);
+            // writer.append(sBody);
+            // writer.flush();
+            // writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     private static String readFromFile(Context context) {
 
@@ -74,10 +119,9 @@ public class TxtHandler {
         return file.exists();
     }
 
-
     public static List<Task> getTasks(Context context) {
 
-        String string;
+        String string = "";
         boolean isFilePresent = isFilePresent(context);
         if (isFilePresent) {
             string = readFromFile(context);
@@ -86,11 +130,16 @@ public class TxtHandler {
             create(context, "");
         }
 
-        String[] parts = {};//string.split("\n");
+
+        String[] parts = string.split(";");
 
         List<Task> taskList = new ArrayList<>();
+
         for (String s : parts) {
-            taskList.add(getTaskFromString(s));
+
+            if (!s.equals("")) {
+                taskList.add(getTaskFromString(s));
+            }
         }
 
         return taskList;
@@ -101,31 +150,48 @@ public class TxtHandler {
         allTasks.remove(task);
         StringBuilder rpr = new StringBuilder();
         for (Task t : allTasks){
-            rpr.append(fromTaskToString(t)).append('\n');
+            rpr.append(fromTaskToString(t)).append('|');
         }
         create(context, rpr.toString());
     }
 
     public static void addTask(Context context, Task task){
         List<Task> allTasks = getTasks(context);
+
+        String txt = fromTaskListToString(allTasks);
+
         allTasks.add(task);
         StringBuilder rpr = new StringBuilder();
         for (Task t : allTasks){
-            rpr.append(fromTaskToString(t)).append('\n');
+            rpr.append(fromTaskToString(t)).append(';');
         }
+
         create(context.getApplicationContext(), rpr.toString());
     }
+
+    public static String fromTaskListToString(List<Task> L) {
+
+        StringBuilder rpr = new StringBuilder();
+        for (Task t : L){
+            rpr.append(fromTaskToString(t)).append(';');
+        }
+
+        return rpr.toString();
+
+    }
+
     public static String fromTaskToString(Task task) {
         Date date = task.getDate();
         @SuppressLint("DefaultLocale")
-        String s = String.format("%s;%s;%d;%d;%d",
+        String s = String.format("%s,%s,%d,%d,%d",
                 task.getNom(), task.getAssignatura(), date.getYear(), date.getMonth(), date.getDate());
         return s;
     }
 
     public static Task getTaskFromString(String txtString) {
-        String[] parts = txtString.split(";");
+        String[] parts = txtString.split(",");
         return new Task(parts[0], parts[1], new Date(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])));
     }
+
 
 }

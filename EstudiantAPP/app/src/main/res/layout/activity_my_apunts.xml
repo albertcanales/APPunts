@@ -17,7 +17,7 @@
         android:scrollbars="vertical"
         android:visibility="visible" />
 
-    <Button
+    <Button android:id="@+id/pujar_bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pujar apunts"/>
