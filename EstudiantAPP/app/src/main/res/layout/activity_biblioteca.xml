@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.BibliotecaActivity"
+    tools:context=".activities.FilterBiblioActivity"
     android:orientation="vertical"
     android:padding="5dp">
 
-    <EditText
+    <EditText android:id="@+id/universitat_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Universitat"
         android:textSize="20dp" />
 
-    <EditText
+    <EditText android:id="@+id/grau_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Grau"
         android:textSize="20dp" />
 
-    <EditText
+    <EditText android:id="@+id/assignatura_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Assignatura"
@@ -28,11 +28,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-        <include android:id="@+id/id1"
-            layout="@layout/list_row_assignaturas" />
-
-    </LinearLayout>
+    <Button android:id="@+id/buscar_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        />
 
 </LinearLayout>

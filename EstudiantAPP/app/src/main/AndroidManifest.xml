@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EstudiantAPP">
         <activity
-            android:name=".activities.AssignaturaActivity"
+            android:name=".activities.BibliotecaActivity"
             android:label="@string/title_activity_assignatura"
             android:theme="@style/Theme.EstudiantAPP.NoActionBar"></activity>
-        <activity android:name=".activities.BibliotecaActivity" />
+        <activity android:name=".activities.FilterBiblioActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.estudiantapp.activities.BibliotecaActivity;
+import com.example.estudiantapp.activities.FilterBiblioActivity;
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.FragmentApuntsBinding;
 
@@ -26,7 +26,7 @@ public class ApuntsFragment extends Fragment {
         root.findViewById(R.id.biblioteca).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), BibliotecaActivity.class));
+                startActivity(new Intent(getActivity(), FilterBiblioActivity.class));
             }
         });
 
