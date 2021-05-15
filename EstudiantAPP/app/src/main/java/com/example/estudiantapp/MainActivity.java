@@ -1,6 +1,7 @@
 package com.example.estudiantapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
@@ -16,10 +17,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.estudiantapp.databinding.ActivityMainBinding;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    PrintWriter out;
+
+    {
+        try {
+            out = new PrintWriter("Tasks.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        Log.d("TXT", "myPrint");
+
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -61,5 +82,17 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public static String fromTaskToString(Task task) {
+        Date date = task.getDate();
+        String s = String.format("%1;%2;%3;%4;%5",
+                task.getNom(), task.getAssignatura(), date.getYear(), date.getMonth(), date.getDate());
+        return s;
+    }
+
+    public static Task getTaskFromString(String txtString) {
+        String[] parts = txtString.split(";");
+        return new Task(parts[0], parts[1], new Date(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])));
     }
 }
