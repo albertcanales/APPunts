@@ -20,7 +20,7 @@ public class ApuntActivity extends AppCompatActivity {
         Intent i = getIntent();
         Apunt apunt = (Apunt)i.getSerializableExtra("APUNT");
 
-        Log.d("APUNT", apunt.toString());
+        Log.d("APUNT", apunt.toMemString());
 
         ((TextView) findViewById(R.id.tipus_tv)).setText(apunt.getType());
         ((TextView) findViewById(R.id.titol_tv)).setText(apunt.getSubject().concat(" - ").concat(apunt.getDegree()));

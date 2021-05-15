@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         }
         */
 
+        Date d = new Date(2021, 5, 15);
+        Log.d("LOLAZO", d.toString());
+
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
