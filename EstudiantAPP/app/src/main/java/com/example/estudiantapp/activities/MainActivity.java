@@ -1,7 +1,9 @@
 package com.example.estudiantapp.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,6 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.ActivityMainBinding;
+import com.example.estudiantapp.db.ApuntsHandler;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         context = this;
+
+        ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
+        ApuntsHandler.restore(context);
 
         //        Task task1 = new Task("Entregable 4", "CD", new Date(2021, 12, 3));
 //        Task task2 = new Task("Entregable 5", "CD", new Date(2021, 12, 3));
@@ -70,6 +76,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        menu.findItem(R.id.load_data).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
+                ApuntsHandler.restore(context);
+                Log.d("ARXIUS", String.valueOf(ApuntsHandler.isFilePresent(context)));
+                Log.d("ARXIUS", ApuntsHandler.getApunts().toString());
+                return true;
+            }
+        });
         return true;
     }
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_tasks">
+    app:startDestination="@id/nav_apunts">
 
     <fragment
         android:id="@+id/nav_tasks"
@@ -16,10 +16,4 @@
         android:name="com.example.estudiantapp.fragments.ApuntsFragment"
         android:label="@string/menu_apunts"
         tools:layout="@layout/fragment_apunts" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.estudiantapp.fragments.VideosFragment"
-        android:label="@string/menu_videos"
-        tools:layout="@layout/fragment_videos" />
 </navigation>

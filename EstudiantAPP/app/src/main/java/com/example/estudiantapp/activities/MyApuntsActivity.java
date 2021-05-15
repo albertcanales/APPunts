@@ -8,12 +8,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.db.Apunt;
 import com.example.estudiantapp.db.ApuntsCollection;
+import com.example.estudiantapp.db.ApuntsHandler;
 import com.example.estudiantapp.ui.MyApuntsAdapter;
 
 import java.util.ArrayList;
@@ -22,8 +24,9 @@ import java.util.List;
 
 public class MyApuntsActivity extends AppCompatActivity {
 
-    static ApuntsCollection myApunts;
     static MyApuntsActivity myActivity;
+
+    static String USER = "Aleix Torres";
 
     static RecyclerView recyclerViewApunts;
 
@@ -38,17 +41,7 @@ public class MyApuntsActivity extends AppCompatActivity {
         recyclerViewApunts.setHasFixedSize(true);
         recyclerViewApunts.setLayoutManager(new LinearLayoutManager(this));
 
-        List<Apunt> apunts = new ArrayList() {{
-            add(new Apunt("Apunts 1", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8), false));
-            add(new Apunt("Apunts 2", "Duna Tomàs", "Mates", "CD", "Laboratori", 52, "", new Date(2021, 6, 8), false));
-            add(new Apunt("Apunts 3", "Duna Tomàs", "Mates", "CD", "Resum", 52, "", new Date(2021, 6, 8), false));
-            add(new Apunt("Apunts 4", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8), false));
-            add(new Apunt("Apunts 5", "Duna Tomàs", "Mates", "CD", "Laboratori", 52, "", new Date(2021, 6, 8), false));
-            add(new Apunt("Apunts 6", "Duna Tomàs", "Mates", "CD", "Resum", 52, "", new Date(2021, 6, 8), false));
-        }};
-
-        myApunts = new ApuntsCollection(apunts);
-        setAdapter(myApunts);
+        setAdapter(ApuntsHandler.getApunts().getApuntsOfAuthor(USER));
         findViewById(R.id.pujar_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,8 +66,8 @@ public class MyApuntsActivity extends AppCompatActivity {
             builder.setMessage("Delete it permanently?")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            myApunts.remove(apunt);
-                            setAdapter(myApunts);
+                            ApuntsHandler.remove(apunt, myActivity);
+                            setAdapter(ApuntsHandler.getApunts().getApuntsOfAuthor(USER));
                         }
                     })
                     .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
