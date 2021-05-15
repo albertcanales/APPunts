@@ -10,15 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EstudiantAPP">
 
-        <activity android:name=".activities.NewApuntActivity"/>
-        <activity android:name=".activities.MyApuntsActivity"/>
+        <activity android:name=".activities.NewApuntActivity"
+            android:label="Pujar Nous Apunts"/>
+        <activity android:name=".activities.MyApuntsActivity"
+            android:label="Els Meus Apunts"/>
         <activity android:name=".activities.ApuntActivity"
             android:theme="@style/Theme.EstudiantAPP.NoActionBar"/>
         <activity
             android:name=".activities.BibliotecaActivity"
-            android:label="@string/title_activity_assignatura"
+            android:label="Biblioteca"
             android:theme="@style/Theme.EstudiantAPP.NoActionBar" />
-        <activity android:name=".activities.FilterBiblioActivity" />
+        <activity android:name=".activities.FilterBiblioActivity"
+            android:label="Filtre Biblioteca"/>
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
@@ -31,7 +34,7 @@
         </activity>
         <activity
             android:name=".activities.NewTaskActivity"
-            android:label="@string/app_name" />
+            android:label="Nova Tasca" />
     </application>
 
 </manifest>
