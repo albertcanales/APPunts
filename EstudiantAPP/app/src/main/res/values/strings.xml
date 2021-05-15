@@ -25,4 +25,10 @@
     <string name="resum">Resum</string>
     <string name="laboratori">Laboratori</string>
 
+    <string name="loremIpsum">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
+
 </resources>
