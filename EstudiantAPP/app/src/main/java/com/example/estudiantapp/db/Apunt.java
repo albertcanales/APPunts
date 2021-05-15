@@ -11,11 +11,12 @@ public class Apunt {
     private int pageCount;
     private String description;
     private Date date;
+    private boolean isFavourite;
 
     public Apunt() {
     }
 
-    public Apunt(String pdfName, String author, String degree, String subject, String type, int pageCount, String description, Date date){
+    public Apunt(String pdfName, String author, String degree, String subject, String type, int pageCount, String description, Date date, boolean isFavourite){
         this.pdfName = pdfName;
         this.author = author;
         this.degree = degree;
@@ -24,6 +25,7 @@ public class Apunt {
         this.pageCount = pageCount;
         this.description = description;
         this.date = date;
+        this.isFavourite = isFavourite;
     }
 
     public String getPdfName() {
@@ -88,5 +90,13 @@ public class Apunt {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public boolean getIsFavourite(){
+    	return this.isFavourite;
+    }
+
+    public void setIsFavourite(boolean isFavourite){
+    	this.isFavourite = isFavourite;
     }
 }

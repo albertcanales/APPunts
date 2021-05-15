@@ -89,6 +89,16 @@ public class ApuntsCollection {
         return answer;
     }
 
+    public ApuntsCollection getFavourites(){
+        ApuntsCollection answer = new ApuntsCollection();
+        for (Apunt apunt : apunts){
+            if (apunt.isFavourite()){
+                answer.add(apunt);
+            }
+        }
+        return answer;
+    }
+
     public int count(){
         return apunts.size();
     }
