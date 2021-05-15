@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +23,9 @@ import java.util.List;
 public class MyApuntsActivity extends AppCompatActivity {
 
     static ApuntsCollection myApunts;
-    MyApuntsActivity myActivity;
+    static MyApuntsActivity myActivity;
+
+    static RecyclerView recyclerViewApunts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +34,9 @@ public class MyApuntsActivity extends AppCompatActivity {
 
         myActivity = this;
 
-        RecyclerView recyclerViewElements = findViewById(R.id.apuntsRecyclerView);
-        recyclerViewElements.setHasFixedSize(true);
-        recyclerViewElements.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewApunts = findViewById(R.id.apuntsRecyclerView);
+        recyclerViewApunts.setHasFixedSize(true);
+        recyclerViewApunts.setLayoutManager(new LinearLayoutManager(this));
 
         List<Apunt> apunts = new ArrayList() {{
             add(new Apunt("Apunts 1", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8), false));
@@ -44,9 +48,7 @@ public class MyApuntsActivity extends AppCompatActivity {
         }};
 
         myApunts = new ApuntsCollection(apunts);
-        RecyclerView.Adapter adapter = new MyApuntsAdapter(myApunts, this);
-        recyclerViewElements.setAdapter(adapter);
-
+        setAdapter(myApunts);
         findViewById(R.id.pujar_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,9 +68,27 @@ public class MyApuntsActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            // TODO Falta poder borrar coses
-            myApunts.remove(apunt);
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(myActivity);
+            builder.setMessage("Delete it permanently?")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            myApunts.remove(apunt);
+                            setAdapter(myApunts);
+                        }
+                    })
+                    .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            builder.create().show();
+
         }
+    }
+
+    private static void setAdapter(ApuntsCollection myApunts) {
+        recyclerViewApunts.setAdapter(new MyApuntsAdapter(myApunts, myActivity));
     }
     
 }

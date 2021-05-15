@@ -30,6 +30,8 @@
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
+    <string name="biblioteca">Biblioteca</string>
+    <string name="load_data">Carregar dades de prova</string>
     <string-array name="types">
         <item>Resum</item>
         <item>Teoria</item>

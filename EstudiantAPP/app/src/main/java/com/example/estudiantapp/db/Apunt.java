@@ -115,6 +115,16 @@ public class Apunt implements Serializable {
         this.isFavourite = isFavourite;
     }
 
+    String dateToString(Date date) {
+        return String.valueOf(date.getYear()).concat("-").concat(String.valueOf(date.getMonth())).concat("-").
+                concat(String.valueOf(date.getDate()));
+    }
+
+    Date stringToDate(String string) {
+        String[] s = string.split("-");
+        return new Date(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Integer.parseInt(s[2]));
+    }
+
     public String toMemString(){
         return pdfName
                 + "," + author
@@ -131,27 +141,17 @@ public class Apunt implements Serializable {
     public String toString() {
         return "Apunt{" +
                 "pdfName='" + pdfName + '\'' +
-        ", author='" + author + '\'' +
-        ", degree='" + degree + '\'' +
-        ", subject='" + subject + '\'' +
-        ", type='" + type + '\'' +
-        ", pageCount=" + pageCount +
-        ", description='" + description + '\'' +
-        ", date=" + date.toString() + '\'' +
-        ", isFavourite=" + isFavourite.toString() +
+                ", author='" + author + '\'' +
+                ", degree='" + degree + '\'' +
+                ", subject='" + subject + '\'' +
+                ", type='" + type + '\'' +
+                ", pageCount=" + pageCount +
+                ", description='" + description + '\'' +
+                ", date=" + date.toString() + '\'' +
+                ", isFavourite=" + isFavourite.toString() +
                 '}';
     }
 
-
-    String dateToString(Date date) {
-        return String.valueOf(date.getYear()).concat("-").concat(String.valueOf(date.getMonth())).concat("-").
-                concat(String.valueOf(date.getDate()));
-    }
-
-    Date stringToDate(String string) {
-        String[] s = string.split("-");
-        return new Date(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Integer.parseInt(s[2]));
-    }
 }
 
 
