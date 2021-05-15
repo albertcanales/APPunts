@@ -93,7 +93,7 @@ public class ApuntsCollection {
     public ApuntsCollection getFavourites(){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
-            if (apunt.isFavourite()){
+            if (apunt.getIsFavourite()){
                 answer.add(apunt);
             }
         }

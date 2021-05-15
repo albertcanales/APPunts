@@ -8,10 +8,10 @@ public class Apunt {
     private String degree;
     private String subject;
     private String type;
-    private int pageCount;
+    private Integer pageCount;
     private String description;
     private Date date;
-    private boolean isFavourite;
+    private Boolean isFavourite;
 
     public Apunt() {
     }

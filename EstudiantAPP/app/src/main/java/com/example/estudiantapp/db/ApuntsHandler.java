@@ -1,5 +1,15 @@
 package com.example.estudiantapp.db;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,12 +33,12 @@ public class ApuntsHandler{
 
     public void add(Apunt apunt, Context context){
         apunts.add(apunt);
-        save(context)
+        save(context);
     }
 
     public void remove(Apunt apunt, Context context){
         apunts.remove(apunt);
-        save(context)
+        save(context);
     }
 
     public ApuntsCollection getApuntsOfAuthor(String author){
@@ -96,7 +106,7 @@ public class ApuntsHandler{
     public ApuntsCollection getFavourites(){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
-            if (apunt.isFavourite()){
+            if (apunt.getIsFavourite()){
                 answer.add(apunt);
             }
         }
@@ -161,7 +171,7 @@ public class ApuntsHandler{
         return ret;
     }
 
-    private static boolean isFilePresent(Context context) {
+    private boolean isFilePresent(Context context) {
         String path = context.getFilesDir().getAbsolutePath() + "/" + FILENAME;
         File file = new File(path);
         return file.exists();
@@ -170,7 +180,7 @@ public class ApuntsHandler{
     private void restore(Context context){
         if (isFilePresent(context)){
             String all = readFromFile(context);
-            apunts = ArrayList<>();
+            apunts = new ArrayList<>();
             String[] parts = all.split(";");
             for (String s : parts){
                 if (!s.equals("")){
@@ -179,7 +189,7 @@ public class ApuntsHandler{
             }
         }
         else{
-            apunts = ArrayList<>();
+            apunts = new ArrayList<>();
         }
     }
 }

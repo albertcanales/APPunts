@@ -48,8 +48,6 @@ public class TxtHandler {
 
     }
 
-
-
     // Aquí comença codi copiat fortament d'Internet
 
     public void writeFileOnInternalStorage(Context mcoContext, String sFileName){
