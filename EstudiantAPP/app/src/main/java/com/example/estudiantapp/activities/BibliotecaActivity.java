@@ -1,7 +1,10 @@
 package com.example.estudiantapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.example.estudiantapp.db.Apunt;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
@@ -16,6 +19,7 @@ public class BibliotecaActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     SectionsPagerAdapter sectionsPagerAdapter;
+    static BibliotecaActivity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,8 @@ public class BibliotecaActivity extends AppCompatActivity {
 
         binding = ActivityAssignaturaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        activity = this;
 
         sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         viewPager = binding.viewPager;
@@ -34,5 +40,21 @@ public class BibliotecaActivity extends AppCompatActivity {
     public void refreshAdapter(int tabPosition) {
         viewPager.setAdapter(sectionsPagerAdapter);
         viewPager.setCurrentItem(tabPosition, false);
+    }
+
+    public static class ChangeToApunt implements View.OnClickListener {
+
+        Apunt apunt;
+
+        public ChangeToApunt(Apunt apunt) {
+            this.apunt = apunt;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(activity, ApuntActivity.class);
+            intent.putExtra("APUNT", apunt);
+            activity.startActivity(intent);
+        }
     }
 }

@@ -58,27 +58,24 @@ public class PlaceholderFragment extends Fragment {
 
         myActivity = (BibliotecaActivity) requireActivity();
 
-        ApuntsCollection apuntsCollection = new ApuntsCollection();
-
+        // Just for testing
         List<Apunt> apunts = new ArrayList() {{
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
-            add(new Apunt("CD Apunts complets", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 1", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 2", "Duna Tomàs", "Mates", "CD", "Laboratori", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 3", "Duna Tomàs", "Mates", "CD", "Resum", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 4", "Duna Tomàs", "Mates", "CD", "Teoria", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 5", "Duna Tomàs", "Mates", "CD", "Laboratori", 52, "", new Date(2021, 6, 8)));
+            add(new Apunt("Apunts 6", "Duna Tomàs", "Mates", "CD", "Resum", 52, "", new Date(2021, 6, 8)));
         }};
+        ApuntsCollection apuntsCollection = new ApuntsCollection(apunts);
+        RecyclerView.Adapter adapter;
 
-        RecyclerView.Adapter adapter = new ApuntsAdapter(apuntsCollection, myActivity);
-        // TODO Això de sobre no farà falta
-        if (tabPosition == RESUM_TAB) {
-
-        } else if (tabPosition == TEORIA_TAB) {   // ANGLES
-            //adapter = new AnglesAdapter(elements, myActivity);
-        } else if (tabPosition == LABORATORI_TAB) {
-            //adapter = new VectorsAdapter(elements, myActivity);
-        }
-        adapter = new ApuntsAdapter(new ApuntsCollection(apunts), myActivity);
+        if (tabPosition == TEORIA_TAB)
+            adapter = new ApuntsAdapter(apuntsCollection.getApuntsOfType("Teoria"), myActivity);
+        else if (tabPosition == RESUM_TAB)
+            adapter = new ApuntsAdapter(apuntsCollection.getApuntsOfType("Resum"), myActivity);
+        else
+            adapter = new ApuntsAdapter(apuntsCollection.getApuntsOfType("Laboratori"), myActivity);
 
         recyclerViewElements.setAdapter(adapter);
 

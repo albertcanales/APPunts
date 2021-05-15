@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EstudiantAPP">
+        <activity android:name=".activities.ApuntActivity"></activity>
         <activity
             android:name=".activities.BibliotecaActivity"
             android:label="@string/title_activity_assignatura"
-            android:theme="@style/Theme.EstudiantAPP.NoActionBar"></activity>
+            android:theme="@style/Theme.EstudiantAPP.NoActionBar" />
         <activity android:name=".activities.FilterBiblioActivity" />
         <activity
             android:name=".activities.MainActivity"

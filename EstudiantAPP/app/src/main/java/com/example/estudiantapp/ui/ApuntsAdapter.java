@@ -1,15 +1,18 @@
 package com.example.estudiantapp.ui;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.estudiantapp.R;
+import com.example.estudiantapp.activities.BibliotecaActivity;
 import com.example.estudiantapp.db.Apunt;
 import com.example.estudiantapp.db.ApuntsCollection;
 
@@ -36,6 +39,8 @@ public class ApuntsAdapter extends RecyclerView.Adapter<ApuntsAdapter.ViewHolder
         onBindChildrenViewHolder(position);
         holder.name_tv.setText(getItemName(position));
         holder.author_tv.setText(getItemAuthor(position));
+        holder.layout.setOnClickListener(
+                new BibliotecaActivity.ChangeToApunt(apuntsCollection.getApunts().get(position)));
     }
 
     void onBindChildrenViewHolder(int position) {
@@ -59,11 +64,19 @@ public class ApuntsAdapter extends RecyclerView.Adapter<ApuntsAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+        final LinearLayout layout;
         final TextView name_tv;
         final TextView author_tv;
 
         ViewHolder(View v) {
             super(v);
+            layout = v.findViewById(R.id.list_lay);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("PROVA", name_tv.getText().toString());
+                }
+            });
             name_tv = v.findViewById(R.id.name_tv);
             author_tv = v.findViewById(R.id.author_tv);
         }

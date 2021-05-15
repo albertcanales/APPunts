@@ -1,8 +1,9 @@
 package com.example.estudiantapp.db;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Apunt {
+public class Apunt implements Serializable {
     private String pdfName;
     private String author;
     private String degree;
@@ -88,5 +89,19 @@ public class Apunt {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Apunt{" +
+                "pdfName='" + pdfName + '\'' +
+                ", author='" + author + '\'' +
+                ", degree='" + degree + '\'' +
+                ", subject='" + subject + '\'' +
+                ", type='" + type + '\'' +
+                ", pageCount=" + pageCount +
+                ", description='" + description + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
