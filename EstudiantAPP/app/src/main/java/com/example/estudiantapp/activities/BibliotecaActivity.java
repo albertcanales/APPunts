@@ -1,10 +1,12 @@
-package com.example.estudiantapp;
+package com.example.estudiantapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Biblioteca extends AppCompatActivity {
+import com.example.estudiantapp.R;
+
+public class BibliotecaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

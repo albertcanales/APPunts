@@ -1,8 +1,7 @@
-package com.example.estudiantapp.ui;
+package com.example.estudiantapp.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.estudiantapp.Biblioteca;
-import com.example.estudiantapp.NewTaskActivity;
+import com.example.estudiantapp.activities.BibliotecaActivity;
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.FragmentApuntsBinding;
 
@@ -28,7 +26,7 @@ public class ApuntsFragment extends Fragment {
         root.findViewById(R.id.biblioteca).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Biblioteca.class));
+                startActivity(new Intent(getActivity(), BibliotecaActivity.class));
             }
         });
 

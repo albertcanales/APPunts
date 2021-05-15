@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_tasks"
-        android:name="com.example.estudiantapp.ui.TasquesFragment"
+        android:name="com.example.estudiantapp.fragments.TasquesFragment"
         android:label="@string/menu_tasks"
         tools:layout="@layout/fragment_tasques" />
 
     <fragment
         android:id="@+id/nav_apunts"
-        android:name="com.example.estudiantapp.ui.ApuntsFragment"
+        android:name="com.example.estudiantapp.fragments.ApuntsFragment"
         android:label="@string/menu_apunts"
         tools:layout="@layout/fragment_apunts" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.estudiantapp.ui.VideosFragment"
+        android:name="com.example.estudiantapp.fragments.VideosFragment"
         android:label="@string/menu_videos"
         tools:layout="@layout/fragment_videos" />
 </navigation>

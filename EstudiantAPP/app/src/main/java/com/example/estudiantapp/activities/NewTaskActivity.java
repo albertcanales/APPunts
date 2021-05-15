@@ -1,8 +1,10 @@
-package com.example.estudiantapp;
+package com.example.estudiantapp.activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.estudiantapp.R;
 
 public class NewTaskActivity extends AppCompatActivity {
 

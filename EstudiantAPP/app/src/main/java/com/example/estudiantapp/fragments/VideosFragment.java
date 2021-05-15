@@ -1,4 +1,4 @@
-package com.example.estudiantapp.ui;
+package com.example.estudiantapp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
