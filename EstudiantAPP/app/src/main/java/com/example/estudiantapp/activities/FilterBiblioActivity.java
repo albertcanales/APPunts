@@ -24,7 +24,7 @@ public class FilterBiblioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_biblioteca);
+        setContentView(R.layout.activity_filterbiblio);
 
         context = this;
 
