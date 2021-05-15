@@ -14,7 +14,7 @@
 
     <string name="due_to">Dia: </string>
     <string name="subject">Assignatura: </string>
-    <string-array name="array_name">
+    <string-array name="assignaturas">
         <item>CD</item>
         <item>AL</item>
         <item>Discreta</item>
@@ -30,5 +30,10 @@
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
         Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
+    <string-array name="types">
+        <item>Resum</item>
+        <item>Teoria</item>
+        <item>Laboratori</item>
+    </string-array>
 
 </resources>

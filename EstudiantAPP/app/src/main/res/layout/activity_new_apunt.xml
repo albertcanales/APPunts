@@ -5,11 +5,14 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nova Tasca"
-        android:textSize="20dp" />
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Nous apunts"
+    android:textSize="25dp"
+    android:textColor="@color/black"
+    android:textAlignment="center"
+    android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,15 +22,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/due_to"
+            android:text="Assignatura: "
             android:textSize="20dp"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:layout_width="wrap_content"
+        <EditText android:id="@+id/assignatura_et"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="dd/mm/yyyy"
-            android:inputType="date"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -40,7 +41,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/subject"
+            android:text="Grau: "
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <EditText android:id="@+id/grau_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipus: "
             android:textSize="20dp"
             android:textColor="@color/black"/>
 
@@ -49,9 +69,38 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:drawSelectorOnTop="true"
-            android:entries="@array/assignaturas"/>
+            android:entries="@array/types"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pujar fitxer: "
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_cloud_upload_24"
+            android:background="@color/white"
+            android:layout_marginLeft="5dp"
+            />
+
+    </LinearLayout>
+
+    <MultiAutoCompleteTextView android:id="@+id/descripcio_tv"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:hint="Descripcio"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,14 +110,14 @@
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:backgroundTint="@color/red"
             android:src="@drawable/ic_baseline_close_24"
             android:layout_marginHorizontal="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:backgroundTint="@color/green"
             android:src="@drawable/ic_baseline_check_24"
             android:layout_marginHorizontal="10dp" />
