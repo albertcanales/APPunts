@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.estudiantapp.databinding.ActivityBibliotecaBinding;
 import com.example.estudiantapp.db.Apunt;
 import com.google.android.material.tabs.TabLayout;
 
@@ -11,11 +12,10 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.estudiantapp.ui.SectionsPagerAdapter;
-import com.example.estudiantapp.databinding.ActivityAssignaturaBinding;
 
 public class BibliotecaActivity extends AppCompatActivity {
 
-    private ActivityAssignaturaBinding binding;
+    private ActivityBibliotecaBinding binding;
 
     ViewPager viewPager;
     SectionsPagerAdapter sectionsPagerAdapter;
@@ -25,7 +25,7 @@ public class BibliotecaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAssignaturaBinding.inflate(getLayoutInflater());
+        binding = ActivityBibliotecaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         activity = this;

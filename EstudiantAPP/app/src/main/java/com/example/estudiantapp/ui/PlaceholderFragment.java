@@ -17,12 +17,10 @@ import com.example.estudiantapp.R;
 import com.example.estudiantapp.db.Apunt;
 import com.example.estudiantapp.db.ApuntsCollection;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.example.estudiantapp.ui.SectionsPagerAdapter.LABORATORI_TAB;
 import static com.example.estudiantapp.ui.SectionsPagerAdapter.RESUM_TAB;
 import static com.example.estudiantapp.ui.SectionsPagerAdapter.TEORIA_TAB;
 
@@ -52,7 +50,7 @@ public class PlaceholderFragment extends Fragment {
         Log.d("TAB", String.valueOf(tabPosition));
         View root = inflater.inflate(R.layout.fragment_assignatura, container, false);
 
-        RecyclerView recyclerViewElements = root.findViewById(R.id.elementsRecyclerView);
+        RecyclerView recyclerViewElements = root.findViewById(R.id.apuntsRecyclerView);
         recyclerViewElements.setHasFixedSize(true);
         recyclerViewElements.setLayoutManager(new LinearLayoutManager(getContext()));
 

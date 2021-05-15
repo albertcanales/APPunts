@@ -37,7 +37,7 @@ public class ApuntsCollection {
         return answer;
     }
 
-    public ApuntsCollection getApuntsOfCareer(String degree){
+    public ApuntsCollection getApuntsOfDegree(String degree){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
             if (apunt.getDegree().contains(degree)){
