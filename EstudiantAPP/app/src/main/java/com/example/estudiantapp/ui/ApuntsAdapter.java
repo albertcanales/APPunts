@@ -9,14 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.estudiantapp.R;
+import com.example.estudiantapp.db.Apunt;
+import com.example.estudiantapp.db.ApuntsCollection;
+
+import java.util.List;
 
 public abstract class ApuntsAdapter extends RecyclerView.Adapter<ApuntsAdapter.ViewHolder> {
 
     final Context context;
-    final List<Apunt> apuntList;
+    final ApuntsCollection apuntsCollection;
 
-    ApuntsAdapter(List<Apunt> apuntList, Context context) {
-        this.apuntList = apuntList;
+    ApuntsAdapter(ApuntsCollection apuntsCollection, Context context) {
+        this.apuntsCollection = new ApuntsCollection(apuntsCollection.getApunts());
         this.context = context;
     }
 

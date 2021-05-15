@@ -14,6 +14,9 @@ public class AssignaturaActivity extends AppCompatActivity {
 
     private ActivityAssignaturaBinding binding;
 
+    ViewPager viewPager;
+    SectionsPagerAdapter sectionsPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +24,15 @@ public class AssignaturaActivity extends AppCompatActivity {
         binding = ActivityAssignaturaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
+        sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
     }
 
-
+    public void refreshAdapter(int tabPosition) {
+        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setCurrentItem(tabPosition, false);
+    }
 }

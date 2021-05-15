@@ -1,33 +1,21 @@
 package com.example.estudiantapp.activities;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Menu;
-import android.view.ViewGroup;
+import android.view.View;
 import android.widget.Button;
 
-<<<<<<< Updated upstream:EstudiantAPP/app/src/main/java/com/example/estudiantapp/activities/MainActivity.java
-import com.example.estudiantapp.R;
-import com.google.android.material.snackbar.Snackbar;
-=======
-import com.example.estudiantapp.databinding.FragmentTasquesBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
->>>>>>> Stashed changes:EstudiantAPP/app/src/main/java/com/example/estudiantapp/MainActivity.java
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,14 +23,13 @@ public class MainActivity extends AppCompatActivity {
     MainActivity context;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("TXT", "myPrint");
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        context = this;
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.newFab.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override

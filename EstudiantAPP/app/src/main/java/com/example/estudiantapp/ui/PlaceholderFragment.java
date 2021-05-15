@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.estudiantapp.activities.AssignaturaActivity;
 import com.example.estudiantapp.R;
+import com.example.estudiantapp.db.ApuntsCollection;
 
 import static com.example.estudiantapp.ui.SectionsPagerAdapter.LABORATORI_TAB;
 import static com.example.estudiantapp.ui.SectionsPagerAdapter.RESUM_TAB;
@@ -51,13 +52,13 @@ public class PlaceholderFragment extends Fragment {
 
         myActivity = (AssignaturaActivity) requireActivity();
 
-
-
         RecyclerView.Adapter adapter;
-        adapter = new TeoriaAdapter(apuntsList, myActivity);
+        ApuntsCollection apuntsCollection = new ApuntsCollection();
+
+        adapter = new TeoriaAdapter(apuntsCollection, myActivity);
         // TODO Això de sobre no farà falta
         if (tabPosition == RESUM_TAB) {
-            adapter = new TeoriaAdapter(apuntsList, myActivity);
+            adapter = new TeoriaAdapter(apuntsCollection, myActivity);
         } else if (tabPosition == TEORIA_TAB) {   // ANGLES
             //adapter = new AnglesAdapter(elements, myActivity);
         } else if (tabPosition == LABORATORI_TAB) {
