@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ApuntsCollection {
     private List<Apunt> apunts;
+    private final String FILENAME = "apunts.txt";
 
     public ApuntsCollection(){
         apunts = new ArrayList<>();

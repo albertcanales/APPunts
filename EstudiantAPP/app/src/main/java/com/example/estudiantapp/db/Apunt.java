@@ -28,6 +28,19 @@ public class Apunt {
         this.isFavourite = isFavourite;
     }
 
+    public Apunt(String rpr){
+    	String[] partes = rpr.split(",");
+    	pdfName = partes[0];
+    	author = partes[1];
+    	degree = partes[2];
+    	subject = partes[3];
+    	type = partes[4];
+    	pageCount = Integer.parseInt(partes[5]);
+    	description = partes[6];
+    	date = new Date(partes[7]);
+    	isFavourite = Boolean.parseBoolean(partes[8]);
+    }
+
     public String getPdfName() {
         return pdfName;
     }
@@ -98,5 +111,17 @@ public class Apunt {
 
     public void setIsFavourite(boolean isFavourite){
     	this.isFavourite = isFavourite;
+    }
+
+    public String toString(){
+    	return pdfName
+    		+ "," + author
+    		+ "," + degree
+    		+ "," + subject
+    		+ "," + type
+    		+ "," + pageCount.toString()
+    		+ "," + description
+    		+ "," + date.toString()
+    		+ "," + isFavourite.toString();
     }
 }
