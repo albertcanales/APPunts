@@ -1,11 +1,11 @@
-package com.example.estudiantapp.ui;
+package com.example.estudiantapp.db;
 
 import java.util.Date;
 
 public class Apunt {
     private String pdfName;
     private String author;
-    private String career;
+    private String degree;
     private String subject;
     private String type;
     private int pageCount;
@@ -15,10 +15,10 @@ public class Apunt {
     public Apunt() {
     }
 
-    public Apunt(String pdfName, String author, String career, String subject, String type, int pageCount, String description, Date date){
+    public Apunt(String pdfName, String author, String degree, String subject, String type, int pageCount, String description, Date date){
         this.pdfName = pdfName;
         this.author = author;
-        this.career = career;
+        this.degree = degree;
         this.subject = subject;
         this.type = type;
         this.pageCount = pageCount;
@@ -42,12 +42,12 @@ public class Apunt {
         this.author = author;
     }
 
-    public String getCareer() {
-        return career;
+    public String getDegree() {
+        return degree;
     }
 
-    public void setCareer(String career) {
-        this.career = career;
+    public void setDegree(String degree) {
+        this.degree = degree;
     }
 
     public String getSubject() {

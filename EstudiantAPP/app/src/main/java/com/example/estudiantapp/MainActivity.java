@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.estudiantapp.db.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,37 +17,39 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.estudiantapp.databinding.ActivityMainBinding;
+import com.google.gson.Gson;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    PrintWriter out;
-
-    {
-        try {
-            out = new PrintWriter("Tasks.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("TXT", "myPrint");
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
         Log.d("TXT", "myPrint");
+        Task task1 = new Task("Entregable 4", "CD", new Date(2021, 12, 3));
+        Task task2 = new Task("Entregable 5", "CD", new Date(2021, 12, 3));
+        Task task3 = new Task("Entregable 6", "CD", new Date(2021, 12, 3));
+        Task task4 = new Task("Entregable 7", "CD", new Date(2021, 12, 3));
+        Task task5 = new Task("Entregable 8", "CD", new Date(2021, 12, 3));
+        Log.d("TXT", "myPrint");
+        List<Task> taskList = new ArrayList<Task>(){{add(task1); add(task2); add(task3); add(task4); add(task5);}};
 
+        Gson gson = new Gson();
+        String json = gson.toJson(taskList, Task.class);
+
+        Log.d("JSON", json);
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {

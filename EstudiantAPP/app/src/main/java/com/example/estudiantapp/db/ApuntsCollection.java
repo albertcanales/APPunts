@@ -1,4 +1,4 @@
-package com.example.estudiantapp.ui;
+package com.example.estudiantapp.db;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,17 +30,17 @@ public class ApuntsCollection {
     public ApuntsCollection getApuntsOfAuthor(String author){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
-            if (apunt.getAuthor().equals(author)){
+            if (apunt.getAuthor().contains(author)){
                 answer.add(apunt);
             }
         }
         return answer;
     }
 
-    public ApuntsCollection getApuntsOfCareer(String career){
+    public ApuntsCollection getApuntsOfCareer(String degree){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
-            if (apunt.getCareer().equals(career)){
+            if (apunt.getDegree().contains(degree)){
                 answer.add(apunt);
             }
         }
@@ -50,7 +50,7 @@ public class ApuntsCollection {
     public ApuntsCollection getApuntsOfSubject(String subject){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
-            if (apunt.getSubject().equals(subject)){
+            if (apunt.getSubject().contains(subject)){
                 answer.add(apunt);
             }
         }
@@ -89,7 +89,7 @@ public class ApuntsCollection {
         return answer;
     }
 
-    public int Count(){
+    public int count(){
         return apunts.size();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.estudiantapp;
+package com.example.estudiantapp.db;
 
 import java.util.Date;
 
@@ -9,14 +9,14 @@ public class Task {
     private Date date;
 
     // Constructor buit
-    Task() {
+    public Task() {
         this.Nom = "";
         this.Assignatura = "";
         this.date = new Date();
     }
 
     // Constructor de tasques
-    Task(String nom, String assignatura, Date date) {
+    public Task (String nom, String assignatura, Date date) {
         this.Nom = nom;
         this.Assignatura = assignatura;
         this.date = date;
