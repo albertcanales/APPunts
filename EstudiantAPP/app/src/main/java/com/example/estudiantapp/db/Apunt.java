@@ -38,7 +38,7 @@ public class Apunt implements Serializable {
         type = partes[4];
         pageCount = Integer.parseInt(partes[5]);
         description = partes[6];
-        date = new Date(partes[7]);
+        date = stringToDate(partes[7]);
         isFavourite = Boolean.parseBoolean(partes[8]);
     }
 
@@ -115,6 +115,28 @@ public class Apunt implements Serializable {
         this.isFavourite = isFavourite;
     }
 
+    String dateToString(Date date) {
+        return String.valueOf(date.getYear()).concat("-").concat(String.valueOf(date.getMonth())).concat("-").
+                concat(String.valueOf(date.getDate()));
+    }
+
+    Date stringToDate(String string) {
+        String[] s = string.split("-");
+        return new Date(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Integer.parseInt(s[2]));
+    }
+
+    public String toMemString(){
+        return pdfName
+                + "," + author
+                + "," + degree
+                + "," + subject
+                + "," + type
+                + "," + pageCount.toString()
+                + "," + description
+                + "," + date.toString()
+                + "," + isFavourite.toString();
+    }
+
     @Override
     public String toString() {
         return "Apunt{" +
@@ -125,10 +147,11 @@ public class Apunt implements Serializable {
                 ", type='" + type + '\'' +
                 ", pageCount=" + pageCount +
                 ", description='" + description + '\'' +
-                ", date=" + date + '\'' +
+                ", date=" + date.toString() + '\'' +
                 ", isFavourite=" + isFavourite.toString() +
-        '}';
+                '}';
     }
+
 }
 
 

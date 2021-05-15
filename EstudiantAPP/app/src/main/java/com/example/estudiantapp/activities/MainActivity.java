@@ -1,22 +1,12 @@
 package com.example.estudiantapp.activities;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.example.estudiantapp.db.Task;
-import com.example.estudiantapp.db.TxtHandler;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,19 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.ActivityMainBinding;
-
 import com.google.android.material.navigation.NavigationView;
-
-import com.google.gson.Gson;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-
-import static com.example.estudiantapp.db.TxtHandler.fromTaskListToString;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_tasks, R.id.nav_apunts, R.id.nav_slideshow)
+                R.id.nav_tasks, R.id.nav_apunts)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

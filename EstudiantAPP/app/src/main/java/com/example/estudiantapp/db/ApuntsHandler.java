@@ -136,7 +136,7 @@ public class ApuntsHandler{
     private void save(Context context){
         String allString = "";
         for (Apunt a : apunts){
-            allString += a.toString() + ";";
+            allString += a.toMemString() + ";";
         }
         create(context, allString);
     }
