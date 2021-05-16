@@ -25,7 +25,6 @@ public class ApuntActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tipus_tv)).setText(apunt.getType());
         ((TextView) findViewById(R.id.titol_tv)).setText(apunt.getSubject().concat(" - ").concat(apunt.getDegree()));
         ((TextView) findViewById(R.id.autor_tv)).setText(apunt.getAuthor());
-
-        // ((TextView) findViewById(R.id.descripcio_tv)).setText(apunt.getDescription());
+        ((TextView) findViewById(R.id.descripcio_tv)).setText(apunt.getDescription());
     }
 }

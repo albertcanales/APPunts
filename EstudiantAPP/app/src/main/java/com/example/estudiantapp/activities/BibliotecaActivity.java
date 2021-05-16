@@ -2,10 +2,13 @@ package com.example.estudiantapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.estudiantapp.databinding.ActivityBibliotecaBinding;
 import com.example.estudiantapp.db.Apunt;
+import com.example.estudiantapp.db.ApuntsCollection;
+import com.example.estudiantapp.db.ApuntsHandler;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
@@ -17,6 +20,8 @@ public class BibliotecaActivity extends AppCompatActivity {
 
     private ActivityBibliotecaBinding binding;
 
+    public ApuntsCollection filteredApunts;
+
     ViewPager viewPager;
     SectionsPagerAdapter sectionsPagerAdapter;
     static BibliotecaActivity activity;
@@ -27,6 +32,13 @@ public class BibliotecaActivity extends AppCompatActivity {
 
         binding = ActivityBibliotecaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Intent i = getIntent();
+        String grau = i.getStringExtra("GRAU");
+        String subject = i.getStringExtra("ASSIGNATURA");
+
+        Log.d("APUNTS", grau+subject);
+        filteredApunts = ApuntsHandler.getApunts().getApuntsOfDegree(grau).getApuntsOfSubject(subject);
 
         activity = this;
 

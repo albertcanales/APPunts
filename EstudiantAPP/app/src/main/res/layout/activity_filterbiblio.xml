@@ -8,12 +8,6 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <EditText android:id="@+id/universitat_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Universitat"
-        android:textSize="20dp" />
-
     <EditText android:id="@+id/grau_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

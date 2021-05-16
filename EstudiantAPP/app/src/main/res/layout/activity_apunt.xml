@@ -56,23 +56,26 @@
 
 
         <TextView android:id="@+id/titol_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Titol"
             android:textSize="30dp"
             android:textColor="@color/black"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:gravity="center"/>
 
         <TextView android:id="@+id/autor_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Author"
             android:textSize="23dp"/>
 
         <TextView android:id="@+id/tipus_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Tipus"
             android:textSize="17dp" />
 

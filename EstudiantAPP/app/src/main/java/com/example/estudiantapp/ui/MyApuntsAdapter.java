@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.activities.MyApuntsActivity;
+import com.example.estudiantapp.db.Apunt;
 import com.example.estudiantapp.db.ApuntsCollection;
 
 public class MyApuntsAdapter extends RecyclerView.Adapter<MyApuntsAdapter.ViewHolder> {
@@ -34,22 +35,15 @@ public class MyApuntsAdapter extends RecyclerView.Adapter<MyApuntsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.name_tv.setText(getItemName(position));
-        holder.author_tv.setText(getItemAuthor(position));
+        Apunt apunt = apuntsCollection.getApunts().get(position);
+        holder.name_tv.setText(apunt.getPdfName() + " - " + apunt.getType());
+        holder.author_tv.setText(apunt.getDegree() + " - " + apunt.getSubject());
         holder.delete_bt.setOnClickListener(
                 new MyApuntsActivity.DeleteApunt(apuntsCollection.getApunts().get(position)));
     }
     @Override
     public int getItemCount() {
         return apuntsCollection.getApunts().size();
-    }
-
-    String getItemName(int position) {
-        return apuntsCollection.getApunts().get(position).getPdfName();
-    }
-
-    String getItemAuthor(int position) {
-        return apuntsCollection.getApunts().get(position).getAuthor();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

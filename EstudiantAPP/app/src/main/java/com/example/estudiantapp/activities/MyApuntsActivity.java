@@ -34,7 +34,6 @@ public class MyApuntsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_apunts);
-
         myActivity = this;
 
         recyclerViewApunts = findViewById(R.id.apuntsRecyclerView);

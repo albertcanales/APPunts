@@ -31,8 +31,6 @@ public class TasquesFragment extends Fragment {
             }
         });
 
-
-
         return root;
     }
 

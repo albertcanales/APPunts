@@ -16,7 +16,6 @@ public class FilterBiblioActivity extends AppCompatActivity {
 
     Context context;
 
-    EditText universitat_et;
     EditText grau_et;
     EditText assignatura_et;
 
@@ -34,16 +33,14 @@ public class FilterBiblioActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(validInput()) {
                     Intent intent = new Intent(context, BibliotecaActivity.class);
-                    intent.putExtra("UNIVERSITAT", universitat_et.getText());
-                    intent.putExtra("GRAU", grau_et.getText());
-                    intent.putExtra("ASSIGNATURA", assignatura_et.getText());
+                    intent.putExtra("GRAU", grau_et.getText().toString());
+                    intent.putExtra("ASSIGNATURA", assignatura_et.getText().toString());
                     startActivity(intent);
                 }
                 else Toast.makeText(context, "Invalid input", Toast.LENGTH_SHORT).show();
             }
         });
 
-        universitat_et = findViewById(R.id.universitat_et);
         grau_et = findViewById(R.id.grau_et);
         assignatura_et = findViewById(R.id.assignatura_et);
     }
