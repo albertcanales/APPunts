@@ -8,13 +8,13 @@
     android:orientation="vertical"
     android:padding="15dp">
 
-    <EditText android:id="@+id/grau_et"
+    <AutoCompleteTextView android:id="@+id/grau_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Grau"
         android:textSize="20dp" />
 
-    <EditText android:id="@+id/assignatura_et"
+    <AutoCompleteTextView android:id="@+id/assignatura_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Assignatura"

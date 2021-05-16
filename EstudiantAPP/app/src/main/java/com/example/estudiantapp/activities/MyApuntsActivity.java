@@ -54,6 +54,13 @@ public class MyApuntsActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.regal_bt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(myActivity, RewardActivity.class));
+            }
+        });
+
     }
 
     public static class DeleteApunt implements View.OnClickListener {

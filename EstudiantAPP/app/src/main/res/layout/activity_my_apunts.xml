@@ -31,4 +31,18 @@
         android:backgroundTint="@color/design_default_color_primary"
         android:tintMode="@color/white"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/regal_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_card_giftcard_24"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:tintMode="@color/white"/>
+
 </RelativeLayout>

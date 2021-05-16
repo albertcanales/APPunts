@@ -6,18 +6,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.estudiantapp.R;
+import com.example.estudiantapp.db.ApuntsHandler;
 
 public class FilterBiblioActivity extends AppCompatActivity {
 
     Context context;
 
-    EditText grau_et;
-    EditText assignatura_et;
+    AutoCompleteTextView grau_et;
+    AutoCompleteTextView assignatura_et;
 
 
     @Override
@@ -42,7 +45,13 @@ public class FilterBiblioActivity extends AppCompatActivity {
         });
 
         grau_et = findViewById(R.id.grau_et);
+        grau_et.setThreshold(1);
+        grau_et.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
+                ApuntsHandler.getApunts().getDegrees()));
         assignatura_et = findViewById(R.id.assignatura_et);
+        assignatura_et.setThreshold(1);
+        assignatura_et.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
+                ApuntsHandler.getApunts().getSubjects()));
     }
 
     boolean validInput() {
