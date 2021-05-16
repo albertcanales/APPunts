@@ -17,6 +17,7 @@
             android:label="Pujar Nous Apunts" />
         <activity
             android:name=".activities.MyApuntsActivity"
+            android:theme="@style/Theme.APPunts.NoActionBar"
             android:label="Els Meus Apunts" />
         <activity
             android:name=".activities.ApuntActivity"

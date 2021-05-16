@@ -20,7 +20,6 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     MainActivity context;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -33,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         context = this;
+
+        ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
+        ApuntsHandler.restore(context);
 
         //ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
         ApuntsHandler.restore(context);
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override

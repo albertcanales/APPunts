@@ -39,6 +39,7 @@ public class MyApuntsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_apunts);
         myActivity = this;
 
+        setSupportActionBar(findViewById(R.id.toolbar));
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         List<String> authors = ApuntsHandler.getApunts().getAuthors();

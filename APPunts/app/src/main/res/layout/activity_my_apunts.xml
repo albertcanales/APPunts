@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:paddingHorizontal="10dp"
-    tools:context=".activities.MyApuntsActivity">
+    tools:context=".activities.MyApuntsActivity"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/apuntsRecyclerView"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.EstudiantAPP.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.EstudiantAPP.PopupOverlay">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:padding="10dp">
+
+                <ImageButton android:id="@+id/pujar_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_cloud_upload_24"
+                    android:backgroundTint="@color/purple_500"/>
+
+                <ImageButton android:id="@+id/regal_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_card_giftcard_24"
+                    android:backgroundTint="@color/purple_500"/>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:scrollbars="vertical"
-        android:visibility="visible" />
+        android:paddingHorizontal="10dp">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/pujar_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_cloud_upload_24"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_margin="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:tintMode="@color/white"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/apuntsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:scrollbars="vertical"
+            android:visibility="visible" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/regal_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_card_giftcard_24"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_margin="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:tintMode="@color/white"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
