@@ -28,6 +28,16 @@ public class ApuntsCollection {
         apunts.remove(apunt);
     }
 
+    public List<String> getAuthors(){
+        List<String> ans = new ArrayList<>();
+        for (Apunt apunt : apunts){
+            if (!ans.contains(apunt.getAuthor())){
+                ans.add(apunt.getAuthor());
+            }
+        }
+        return ans;
+    }
+
     public ApuntsCollection getApuntsOfAuthor(String author){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
@@ -36,6 +46,16 @@ public class ApuntsCollection {
             }
         }
         return answer;
+    }
+
+    public List<String> getDegrees(){
+        List<String> ans = new ArrayList<>();
+        for (Apunt apunt : apunts){
+            if (!ans.contains(apunt.getDegree())){
+                ans.add(apunt.getDegree());
+            }
+        }
+        return ans;
     }
 
     public ApuntsCollection getApuntsOfDegree(String degree){
@@ -48,6 +68,16 @@ public class ApuntsCollection {
         return answer;
     }
 
+    public List<String> getSubjects(){
+        List<String> ans = new ArrayList<>();
+        for (Apunt apunt : apunts){
+            if (!ans.contains(apunt.getSubject())){
+                ans.add(apunt.getSubject());
+            }
+        }
+        return ans;
+    }
+
     public ApuntsCollection getApuntsOfSubject(String subject){
         ApuntsCollection answer = new ApuntsCollection();
         for (Apunt apunt : apunts){
@@ -56,6 +86,16 @@ public class ApuntsCollection {
             }
         }
         return answer;
+    }
+
+    public List<String> getTypes(){
+        List<String> ans = new ArrayList<>();
+        for (Apunt apunt : apunts){
+            if (!ans.contains(apunt.getType())){
+                ans.add(apunt.getType());
+            }
+        }
+        return ans;
     }
 
     public ApuntsCollection getApuntsOfType(String type){
