@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.FilterBiblioActivity"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="15dp">
 
     <EditText android:id="@+id/grau_et"
         android:layout_width="match_parent"
