@@ -133,7 +133,7 @@ public class Apunt implements Serializable {
                 + "," + type
                 + "," + pageCount.toString()
                 + "," + description
-                + "," + date.toString()
+                + "," + dateToString(date)
                 + "," + isFavourite.toString();
     }
 

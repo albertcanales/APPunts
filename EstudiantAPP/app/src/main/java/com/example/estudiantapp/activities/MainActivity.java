@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         //ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
-        Log.d("ARXIUS", "Still alive");
         ApuntsHandler.restore(context);
+
 
         //        Task task1 = new Task("Entregable 4", "CD", new Date(2021, 12, 3));
 //        Task task2 = new Task("Entregable 5", "CD", new Date(2021, 12, 3));

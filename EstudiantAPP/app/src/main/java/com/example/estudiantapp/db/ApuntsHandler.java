@@ -104,9 +104,7 @@ public class ApuntsHandler{
     public static void  restore(Context context){
         apunts = new ApuntsCollection();
         if (isFilePresent(context)){
-            Log.d("ARXIUS", "Still alive");
             String all = readFromFile(context);
-            Log.d("ARXIUS", "Still alive"+all);
             String[] parts = all.split(";");
             for (String s : parts){
                 if (!s.equals("")){
