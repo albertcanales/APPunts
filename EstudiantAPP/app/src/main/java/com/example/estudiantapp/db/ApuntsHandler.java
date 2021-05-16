@@ -32,6 +32,11 @@ public class ApuntsHandler{
         save(context);
     }
 
+    public static void changeFavourite(Apunt apunt, Context context){
+        apunt.setIsFavourite(!apunt.getIsFavourite());
+        save(context);
+    }
+
     public int count(){
         return apunts.getApunts().size();
     }
@@ -99,6 +104,7 @@ public class ApuntsHandler{
     public static void  restore(Context context){
         apunts = new ApuntsCollection();
         if (isFilePresent(context)){
+            Log.d("ARXIUS", "Still alive");
             String all = readFromFile(context);
             Log.d("ARXIUS", "Still alive"+all);
             String[] parts = all.split(";");
