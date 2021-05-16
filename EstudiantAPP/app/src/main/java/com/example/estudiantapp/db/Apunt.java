@@ -152,6 +152,17 @@ public class Apunt implements Serializable {
                 '}';
     }
 
+    public boolean equals(Apunt apunt){
+        return pdfName.equals(apunt.pdfName)
+                && author.equals(apunt.author)
+                && degree.equals(apunt.degree)
+                && subject.equals(apunt.subject)
+                && type.equals(apunt.type)
+                && pageCount.equals(apunt.pageCount)
+                && description.equals(apunt.description)
+                && date.equals(apunt.date);
+    }
+
 }
 
 

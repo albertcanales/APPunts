@@ -43,13 +43,13 @@
         android:textColor="@color/design_default_color_primary"
         android:textSize="18sp"/>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/apuntsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include android:id="@+id/id1"
-            layout="@layout/list_row_apunts" />
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:scrollbars="vertical"
+        android:visibility="visible" />
 
 </LinearLayout>

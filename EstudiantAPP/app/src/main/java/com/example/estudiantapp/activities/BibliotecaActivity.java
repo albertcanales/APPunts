@@ -21,6 +21,7 @@ public class BibliotecaActivity extends AppCompatActivity {
     private ActivityBibliotecaBinding binding;
 
     public ApuntsCollection filteredApunts;
+    static String grau, subject;
 
     ViewPager viewPager;
     SectionsPagerAdapter sectionsPagerAdapter;
@@ -34,11 +35,12 @@ public class BibliotecaActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Intent i = getIntent();
-        String grau = i.getStringExtra("GRAU");
-        String subject = i.getStringExtra("ASSIGNATURA");
+
+        grau = i.getStringExtra("GRAU");
+        subject = i.getStringExtra("ASSIGNATURA");
 
         Log.d("APUNTS", grau+subject);
-        filteredApunts = ApuntsHandler.getApunts().getApuntsOfDegree(grau).getApuntsOfSubject(subject);
+        filteredApunts = updateFilteredApunts();
 
         activity = this;
 
@@ -68,5 +70,10 @@ public class BibliotecaActivity extends AppCompatActivity {
             intent.putExtra("APUNT", apunt);
             activity.startActivity(intent);
         }
+    }
+
+    static ApuntsCollection updateFilteredApunts() {
+        Log.d("APUNTS", ApuntsHandler.getApunts().getApuntsOfDegree(grau).getApuntsOfSubject(subject).toString());
+        return ApuntsHandler.getApunts().getApuntsOfDegree(grau).getApuntsOfSubject(subject);
     }
 }

@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -16,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.estudiantapp.R;
 import com.example.estudiantapp.databinding.ActivityMainBinding;
+import com.example.estudiantapp.db.ApuntsCollection;
 import com.example.estudiantapp.db.ApuntsHandler;
 import com.google.android.material.navigation.NavigationView;
 
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     MainActivity context;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    public ApuntsCollection apuntsFavourites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         //ApuntsHandler.create(context, getResources().getString(R.string.default_apunts));
         ApuntsHandler.restore(context);
-
-
-        //        Task task1 = new Task("Entregable 4", "CD", new Date(2021, 12, 3));
-//        Task task2 = new Task("Entregable 5", "CD", new Date(2021, 12, 3));
-//        Task task3 = new Task("Entregable 6", "CD", new Date(2021, 12, 3));
-//        Task task4 = new Task("Entregable 7", "CD", new Date(2021, 12, 3));
-//        Task task5 = new Task("Entregable 8", "CD", new Date(2021, 12, 3));
-//
-//        List<Task> taskList = new ArrayList<Task>(){{add(task1); add(task2); add(task3); add(task4); add(task5);}};
-
-        // Gson gson = new Gson();
-
-        // String txt = fromTaskListToString(taskList);
-
-        /*
-        try {
-            TxtHandler.prova(context, taskList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
 
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;

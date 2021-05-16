@@ -21,7 +21,7 @@ public class ApuntsAdapter extends RecyclerView.Adapter<ApuntsAdapter.ViewHolder
     final Context context;
     final ApuntsCollection apuntsCollection;
 
-    ApuntsAdapter(ApuntsCollection apuntsCollection, Context context) {
+    public ApuntsAdapter(ApuntsCollection apuntsCollection, Context context) {
         this.apuntsCollection = new ApuntsCollection(apuntsCollection.getApunts());
         this.context = context;
     }

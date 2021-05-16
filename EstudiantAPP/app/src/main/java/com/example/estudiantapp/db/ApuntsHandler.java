@@ -10,9 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class ApuntsHandler{
     private static ApuntsCollection apunts =  new ApuntsCollection();
@@ -33,7 +30,9 @@ public class ApuntsHandler{
     }
 
     public static void changeFavourite(Apunt apunt, Context context){
-        apunt.setIsFavourite(!apunt.getIsFavourite());
+        for(int i = 0; i < getApunts().getApunts().size(); i++)
+            if(getApunts().getApunts().get(i).equals(apunt))
+                getApunts().getApunts().get(i).setIsFavourite(!apunt.getIsFavourite());
         save(context);
     }
 

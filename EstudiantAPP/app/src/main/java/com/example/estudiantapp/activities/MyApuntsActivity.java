@@ -21,12 +21,13 @@ import com.example.estudiantapp.ui.MyApuntsAdapter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MyApuntsActivity extends AppCompatActivity {
 
     static MyApuntsActivity myActivity;
 
-    static String USER = "Aleix Torres";
+    static String USER;
 
     static RecyclerView recyclerViewApunts;
 
@@ -35,6 +36,11 @@ public class MyApuntsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_apunts);
         myActivity = this;
+
+        List<String> authors = ApuntsHandler.getApunts().getAuthors();
+        Random random = new Random();
+
+        USER = authors.get(random.nextInt(authors.size()-1));
 
         recyclerViewApunts = findViewById(R.id.apuntsRecyclerView);
         recyclerViewApunts.setHasFixedSize(true);

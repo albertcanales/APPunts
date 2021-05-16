@@ -143,4 +143,11 @@ public class ApuntsCollection {
     public int count(){
         return apunts.size();
     }
+
+    @Override
+    public String toString() {
+        return "ApuntsCollection{" +
+                "apunts=" + apunts +
+                '}';
+    }
 }

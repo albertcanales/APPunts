@@ -30,6 +30,8 @@
             android:layout_height="wrap_content"
             android:text="Grau - Assignatura"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
+
             tools:ignore="NestedWeights"/>
 
     </LinearLayout>
